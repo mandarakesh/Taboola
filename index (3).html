@@ -1,0 +1,1155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taboola Url Builder</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+<header class="mt-2  p-2 d-flex justify-content-center">
+    <div>
+        <h2>URL BUILDER</h2>
+        <button id="taboolaButton" class="btn btn-danger ms-5" onclick="toggleFields()">Taboola</button>
+    </div>
+</header>
+<div class="container">
+    <div id="fieldsContainer" style="display: none;">
+        <div class="mt-2  p-2 d-flex justify-content-between"> 
+            <div>
+                <label>Domain</label>
+                <select id="ma" onchange="updateOptions()" class="form-select">
+                    <option>select</option>
+                    <option>cloudsearchhelp</option>
+                    <option>all-search-center</option>
+                    <option>webdigitalmarketingusa</option>
+                    <option>dailycontentnews</option>
+                    <option>contentios</option>
+                    <option>contentifyx</option>
+                    <option>imperfectcontent</option>
+                    <option>gosearchify</option>
+                    <option>yoursearchhelp</option>
+                    <option>searcherix</option>
+                    <option>searchiks</option>
+                    <option>searchtella</option>
+                    <option>searchzonenews</option>
+                    <option>livedailycontent</option>
+
+
+                    
+                    <option value="cloudsearchhelp">DIrectsearch</option>
+                </select>
+            </div>
+            <div>
+                <label>Source</label>
+                <select  id="source" onchange="updateTokens()" class="form-select">
+                    <option value="facebook">Facebook</option>
+                    <option value="taboola">Taboola</option>
+                    <option value="twitter">Facebook</option>
+                    <option value="twitt">Facebook</option>
+                    <option value="twi">Facebook</option>
+                    <option value="daily">Facebook</option>
+                    <option value="daily1">Taboola</option>
+                    <option value="tios">Facebook</option>
+                    <option value="tios1">Taboola</option>
+                    <option value="ifyx">Facebook</option>
+                    <option value="ifyx1">Taboola</option>
+                    <option value="imper">Facebook</option>
+                    <option value="imper1">Taboola</option>
+                    <option value="gose">Facebook</option>
+                    <option value="gose1">Taboola</option>
+                    <option value="yours1">Taboola</option>
+                    <option value="erix">Facebook</option>
+                    <option value="erix1">Taboola</option>
+                    <option value="hiks">Facebook</option>
+                    <option value="hiks1">Taboola</option>
+                    <option value="ella">Facebook</option>
+                    <option value="ella1">Taboola</option>
+                    <option value="news">Facebook</option>
+                    <option value="news1">Taboola</option>
+                    <option value="tent">Facebook</option>
+                    <option value="tent1">Taboola</option>
+
+
+                </select>
+            </div>
+            <div>
+                <label>Token</label>
+                <select id="token" class="form-select" disabled>
+                    <option value="RraKNIiMqT">RraKNIiMqT</option>
+                    <option value="ABmQ5dzCM7">ABmQ5dzCM7</option>
+                    <option value="Wo7t5vgIJ7">Wo7t5vgIJ7</option>
+                    <option value="nTajVQXkYQ">nTajVQXkYQ</option>
+                    <option value="UbTS7LkeHX">UbTS7LkeHX</option>
+                    <option value="WVfieZcG4y">WVfieZcG4y</option>
+                    <option value="LVBIGRJ18X">LVBIGRJ18X</option>
+                    <option value="YzqIMnJLFc">YzqIMnJLFc</option>
+                    <option value="kB5pFEgP0A">kB5pFEgP0A</option>
+                    <option value="gwoUS2vglf">gwoUS2vglf</option>
+                    <option value="1aHswJ9avn">1aHswJ9avn</option>
+                    <option value="BzRcsPuly5">BzRcsPuly5</option>
+                    <option value="qWdLtBt9Ph">qWdLtBt9Ph</option>
+                    <option value="rOGtWNU3hj">rOGtWNU3hj</option>
+                    <option value="4tCL76jsC5">4tCL76jsC5</option>
+                    <option value="3OvmbeMO3F">3OvmbeMO3F</option>
+                    <option value="1xHJY9hKw5">1xHJY9hKw5</option>
+                    <option value="VXumvE76v7">VXumvE76v7</option>
+                    <option value="rN11zGyQ9l">rN11zGyQ9l</option>
+                    <option value="l26AgLoFj5">l26AgLoFj5</option>
+                    <option value="m1L1XLPFsS">m1L1XLPFsS</option>
+                    <option value="pdqfVvhQj4">pdqfVvhQj4</option>
+                    <option value="kW8qYgYGM5">kW8qYgYGM5</option>
+                    <option value="WWGdbWrHBW">WWGdbWrHBW</option>
+                    <option value="mX0MnO4Vwz">mX0MnO4Vwz</option>
+                    <option value="eSpwq0pzzb">eSpwq0pzzb</option>
+
+                    
+
+                </select>
+            </div>
+            <div>
+               <h6>SubId</h6>
+               <div class="input-group">
+                   <input type="text" value="fbcsh" id="subIdInput" placeholder="Enter a number">
+                   <button class="btn btn-primary" id="copySubId" onclick="copySubId()">Copy</button>
+               </div>
+           </div>
+        </div>
+<div class="mb-3">
+   <label for="exampleInputEmail1" class="form-label">Keywords</label>
+   <div class="input-group">
+       <input type="text" class="form-control" id="keywords" aria-describedby="emailHelp">
+       <button class="btn btn-primary" id="copyKeywords" onclick="copyToClipboard()">Copy</button>
+   </div>
+   <div id="emailHelp" class="form-text">Click the "Copy" button to copy the keywords.</div>
+</div>
+        <div>
+            <div class="row">
+                <div class=" col-sm-6">
+                    <button id="clearButton" onclick="clearURL()" class="btn btn-secondary  ml-2" style="display: none;">Clear URL</button>
+                </div>
+                <div class="col-sm-6">
+                    <button onclick="buildURLs()" class="btn btn-success " style="float: right;">RUN</button>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-2">
+                <h4>Generated URL:</h4>
+            </div>
+            <div class="col-sm-8">
+                <ul id="generatedURLs"></ul>
+            </div>
+                <div class="col-sm-2">
+                   <button id="copyAllButton" onclick="copyAllURLs()" class="btn btn-primary mt-2 align-self-xl-end" style="display: none; float: right;">Copy All URLs</button>
+               
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./node_modules/jquery/dist/jquery.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<script>
+   
+        function toggleFields() {
+            var fieldsContainer = document.getElementById("fieldsContainer");
+
+            if (fieldsContainer.style.display === "none") {
+                fieldsContainer.style.display = "block";
+            } else {
+                fieldsContainer.style.display = "none";
+            }
+        }
+        function buildURLs() {
+    var generatedURLsList = document.getElementById("generatedURLs");
+    var clearButton = document.getElementById("clearButton");
+    var copyAllButton = document.getElementById("copyAllButton");
+    if (generatedURLsList && clearButton && copyAllButton) {
+        var movies = document.getElementById("ma").value;
+        var source = document.getElementById("source").value;
+        var token = document.getElementById("token").value;
+        var subId = encodeURIComponent(document.getElementById("subIdInput").value);
+        var keywordsInput = document.getElementById("keywords").value;
+        var keywords = keywordsInput.split(",").map(keyword => keyword.trim());
+        if (movies && source && token && subId && keywords.length > 0) {
+            var generatedURLs = [];
+            generatedURLsList.innerHTML = "";
+            keywords.forEach(keyword => {
+                var formattedKeyword = keyword.replace(/\s+/g, "+");
+                var url = `https://www.${movies}.com/ref/?token=${token}&search=${formattedKeyword}&subid=${subId}`;
+                generatedURLs.push(url);
+                var listItem = document.createElement("li");
+    listItem.textContent = url;
+    var copyButton = document.createElement("button");
+    copyButton.textContent = "Copy URL";
+    copyButton.className = "btn btn-primary btn-sm ml-2";
+    copyButton.onclick = function () {
+        var tempInput = document.createElement("input");
+        tempInput.value = url;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        copyButton.innerText = "Done";
+        copyButton.style.backgroundColor = "green";
+        copyButton.disabled = true;
+    };
+                listItem.appendChild(copyButton);
+                generatedURLsList.appendChild(listItem);
+            });
+            clearButton.style.display = "block";
+            copyAllButton.style.display = "block";
+        }
+    } 
+    else {
+        console.error("One or more elements not found.");
+    }
+}
+
+function copyAllURLs() {
+    var generatedURLsList = document.getElementById("generatedURLs");
+    var urls = Array.from(generatedURLsList.querySelectorAll("li")).map(li => li.textContent).join("\n");
+    var tempInput = document.createElement("textarea");
+    tempInput.value = urls;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    alert("All URLs copied to clipboard!");
+}
+
+
+         function copyURL() {
+             var generatedUrl = document.getElementById("generatedURLs").innerText;
+             var tempInput = document.createElement("input");
+             tempInput.value = generatedUrl;
+             document.body.appendChild(tempInput);
+             tempInput.select();
+             document.execCommand("copy");
+             document.body.removeChild(tempInput);
+             document.getElementById("copyButton").innerText = "Copied!";
+         }
+ 
+         function clearURL() {
+             document.getElementById("generatedURLs").innerHTML = "";
+             document.getElementById("copyButton").style.display = "none";
+             document.getElementById("clearButton").style.display = "none";
+         }
+ 
+         function movies() {
+             var movies = document.getElementById("ma").value;
+             if (movies !== "") {
+                 document.getElementById("source").disabled = false;
+             }
+         }
+           function copyToClipboard() {
+       const keywordsInput = document.getElementById('keywords');
+       keywordsInput.select();
+       document.execCommand('copy');
+   }
+   function copySubId() {
+       const subIdInput = document.getElementById('subId');
+       subIdInput.select();
+       document.execCommand('copy');
+   }
+
+function updateOptions() {
+    var domainSelect = document.getElementById("ma");
+    var sourceSelect = document.getElementById("source");
+    var tokenSelect = document.getElementById("token");
+    var subIdInput = document.getElementById("subIdInput");
+
+    if (domainSelect.value === "cloudsearchhelp") {
+        sourceSelect.innerHTML = '';
+
+        var facebookOption = document.createElement("option");
+        facebookOption.value = "facebook";
+        facebookOption.textContent = "Facebook";
+        sourceSelect.appendChild(facebookOption);
+
+        var taboolaOption = document.createElement("option");
+        taboolaOption.value = "taboola";
+        taboolaOption.textContent = "Taboola";
+        sourceSelect.appendChild(taboolaOption);
+
+        tokenSelect.value = "RraKNIiMqT";
+        subIdInput.value = "fbcsh";
+    }else if (domainSelect.value === "dailycontentnews") {
+        sourceSelect.innerHTML = '';
+
+        var facebookOption = document.createElement("option");
+        facebookOption.value = "daily";
+        facebookOption.textContent = "Facebook";
+        sourceSelect.appendChild(facebookOption);
+
+        var taboolaOption = document.createElement("option");
+        taboolaOption.value = "daily1";
+        taboolaOption.textContent = "Taboola";
+        sourceSelect.appendChild(taboolaOption);
+
+        tokenSelect.value = "WVfieZcG4y";
+        subIdInput.value = "fb12000";
+    } 
+    else if (domainSelect.value === "contentios") {
+        sourceSelect.innerHTML = '';
+
+        var facebookOption = document.createElement("option");
+        facebookOption.value = "tios";
+        facebookOption.textContent = "Facebook";
+        sourceSelect.appendChild(facebookOption);
+
+        var taboolaOption = document.createElement("option");
+        taboolaOption.value = "tios1";
+        taboolaOption.textContent = "Taboola";
+        sourceSelect.appendChild(taboolaOption);
+
+        tokenSelect.value = "YzqIMnJLFc";
+        subIdInput.value = "fb13000";
+    } 
+    else if (domainSelect.value === "contentifyx") {
+        sourceSelect.innerHTML = '';
+
+        var facebookOption = document.createElement("option");
+        facebookOption.value = "ifyx";
+        facebookOption.textContent = "Facebook";
+        sourceSelect.appendChild(facebookOption);
+
+        var taboolaOption = document.createElement("option");
+        taboolaOption.value = "ifyx1";
+        taboolaOption.textContent = "Taboola";
+        sourceSelect.appendChild(taboolaOption);
+
+        tokenSelect.value = "gwoUS2vglf";
+        subIdInput.value = "fb14000";
+    } 
+    else if (domainSelect.value === "imperfectcontent") {
+        sourceSelect.innerHTML = '';
+
+        var facebookOption = document.createElement("option");
+        facebookOption.value = "imper";
+        facebookOption.textContent = "Facebook";
+        sourceSelect.appendChild(facebookOption);
+
+        var taboolaOption = document.createElement("option");
+        taboolaOption.value = "imper1";
+        taboolaOption.textContent = "Taboola";
+        sourceSelect.appendChild(taboolaOption);
+
+        tokenSelect.value = "BzRcsPuly5";
+        subIdInput.value = "fb15000";
+    } 
+    else if (domainSelect.value === "all-search-center") {
+        sourceSelect.innerHTML = '';
+
+        var twitterOption = document.createElement("option");
+        twitterOption.value = "twitter";
+        twitterOption.textContent = "Facebook";
+        sourceSelect.appendChild(twitterOption);
+
+        tokenSelect.value = "Wo7t5vgIJ7";
+        subIdInput.value = "fbasc";
+    }
+     else if (domainSelect.value === "yoursearchhelp") {
+        sourceSelect.innerHTML = '';
+
+        var yours1Option = document.createElement("option");
+        yours1Option.value = "yours1";
+        yours1Option.textContent = "Taboola";
+        sourceSelect.appendChild(yours1Option);
+
+        tokenSelect.value = "3OvmbeMO3F";
+        subIdInput.value = "tb10500";
+    }
+
+    else if (domainSelect.value === "gosearchify") {
+        sourceSelect.innerHTML = '';
+
+        var yoursOption = document.createElement("option");
+        yoursOption.value = "gose";
+        yoursOption.textContent = "Facebook";
+        sourceSelect.appendChild(yoursOption);
+
+        var yours1Option = document.createElement("option");
+        yours1Option.value = "gose1";
+        yours1Option.textContent = "Taboola";
+        sourceSelect.appendChild(yours1Option);
+
+        if (yoursOption.textContent==="Facebook"){
+            tokenSelect.value = "rOGtWNU3hj";
+        subIdInput.value = "fb16000";
+        }
+        else if (yours1Option.textContent==="Taboola"){
+            tokenSelect.value = "4tCL76jsC5";
+        subIdInput.value = "tb16000";
+        }
+
+        
+        
+    }else if (domainSelect.value === "searcherix") {
+        sourceSelect.innerHTML = '';
+
+        var yoursOption = document.createElement("option");
+        yoursOption.value = "erix";
+        yoursOption.textContent = "Facebook";
+        sourceSelect.appendChild(yoursOption);
+
+        var yours1Option = document.createElement("option");
+        yours1Option.value = "erix1";
+        yours1Option.textContent = "Taboola";
+        sourceSelect.appendChild(yours1Option);
+
+        if (yoursOption.textContent==="Facebook"){
+            tokenSelect.value = "1xHJY9hKw5";
+        subIdInput.value = "fb17500";
+        }
+        else if (yours1Option.textContent==="Taboola"){
+            tokenSelect.value = "VXumvE76v7";
+        subIdInput.value = "tb17000";
+        }
+    }
+    else if (domainSelect.value === "searchiks") {
+        sourceSelect.innerHTML = '';
+
+        var yoursOption = document.createElement("option");
+        yoursOption.value = "hiks";
+        yoursOption.textContent = "Facebook";
+        sourceSelect.appendChild(yoursOption);
+
+        var yours1Option = document.createElement("option");
+        yours1Option.value = "hiks1";
+        yours1Option.textContent = "Taboola";
+        sourceSelect.appendChild(yours1Option);
+
+        if (yoursOption.textContent==="Facebook"){
+            tokenSelect.value = "rN11zGyQ9l";
+        subIdInput.value = "fb18500";
+        }
+        else if (yours1Option.textContent==="Taboola"){
+            tokenSelect.value = "l26AgLoFj5";
+        subIdInput.value = "tb18000";
+        }
+    }
+    else if (domainSelect.value === "searchtella") {
+        sourceSelect.innerHTML = '';
+
+        var yoursOption = document.createElement("option");
+        yoursOption.value = "ella";
+        yoursOption.textContent = "Facebook";
+        sourceSelect.appendChild(yoursOption);
+
+        var yours1Option = document.createElement("option");
+        yours1Option.value = "ella1";
+        yours1Option.textContent = "Taboola";
+        sourceSelect.appendChild(yours1Option);
+
+        if (yoursOption.textContent==="Facebook"){
+            tokenSelect.value = "m1L1XLPFsS";
+        subIdInput.value = "fb19500";
+        }
+        else if (yours1Option.textContent==="Taboola"){
+            tokenSelect.value = "pdqfVvhQj4";
+        subIdInput.value = "tb19000";
+        }
+    }
+    else if (domainSelect.value === "searchzonenews") {
+        sourceSelect.innerHTML = '';
+
+        var yoursOption = document.createElement("option");
+        yoursOption.value = "news";
+        yoursOption.textContent = "Facebook";
+        sourceSelect.appendChild(yoursOption);
+
+        var yours1Option = document.createElement("option");
+        yours1Option.value = "news1";
+        yours1Option.textContent = "Taboola";
+        sourceSelect.appendChild(yours1Option);
+
+        if (yoursOption.textContent==="Facebook"){
+            tokenSelect.value = "kW8qYgYGM5";
+        subIdInput.value = "fb20500";
+        }
+        else if (yours1Option.textContent==="Taboola"){
+            tokenSelect.value = "WWGdbWrHBW";
+        subIdInput.value = "tb20000";
+        }
+    }
+    else if (domainSelect.value === "livedailycontent") {
+        sourceSelect.innerHTML = '';
+
+        var yoursOption = document.createElement("option");
+        yoursOption.value = "tent";
+        yoursOption.textContent = "Facebook";
+        sourceSelect.appendChild(yoursOption);
+
+        var yours1Option = document.createElement("option");
+        yours1Option.value = "tent1";
+        yours1Option.textContent = "Taboola";
+        sourceSelect.appendChild(yours1Option);
+
+        if (yoursOption.textContent==="Facebook"){
+            tokenSelect.value = "mX0MnO4Vwz";
+        subIdInput.value = "fb21500";
+        }
+        else if (yours1Option.textContent==="Taboola"){
+            tokenSelect.value = "eSpwq0pzzb";
+        subIdInput.value = "tb21000";
+        }
+    }
+   
+
+
+    
+   
+    
+    else if (domainSelect.value === "gosearchify") {
+        sourceSelect.innerHTML = '';
+
+        
+
+        
+    }
+     else if (domainSelect.value === "DIrectsearch") {
+    // Set the domain to "DIrectsearch" in the backend
+    // Display "DIrectsearch" in the frontend
+    sourceSelect.innerHTML = '';
+
+    // Create options for the "DIrectsearch" case
+    var directSearchOption = document.createElement("option");
+    directSearchOption.value = "directsearch"; // Set the source value for DIrectsearch
+    directSearchOption.textContent = "DIrectsearch"; // Display "DIrectsearch" in the frontend
+    sourceSelect.appendChild(directSearchOption);
+        var twittOption = document.createElement("option");
+        twittOption.value = "twi";
+        twittOption.textContent = "Facebook";
+        sourceSelect.appendChild(twittOption);
+
+        tokenSelect.value = "UbTS7LkeHX";
+        subIdInput.value = "fbdse";
+    } else {
+        sourceSelect.innerHTML = '';
+
+        var defaultOption = document.createElement("option");
+        defaultOption.value = "facebook";
+        defaultOption.textContent = "Facebook";
+        sourceSelect.appendChild(defaultOption);
+
+        tokenSelect.value = "RraKNIiMqT";
+        subIdInput.value = "";
+    }
+}
+
+
+function updateTokens() {
+   var sourceSelect = document.getElementById("source");
+   var tokenSelect = document.getElementById("token");
+   var subIdInput = document.getElementById("subIdInput");
+
+   if (sourceSelect.value === "facebook") {
+       tokenSelect.value = (document.getElementById("ma").value === "cloudsearchhelp") ? "RraKNIiMqT" : 
+                         ((document.getElementById("ma").value === "all-search-center") ? "Wo7t5vgIJ7" : 
+                         "nTajVQXkYQ");
+       subIdInput.value = (document.getElementById("ma").value === "cloudsearchhelp") ? "fbcsh" : 
+                           ((document.getElementById("ma").value === "all-search-center") ? "fbasc" : 
+                           "fbwdm");
+      
+   } else if (sourceSelect.value === "daily") {
+       tokenSelect.value = "WVfieZcG4y";
+       subIdInput.value = "fb12000";
+   }
+   else if (sourceSelect.value === "daily1") {
+       tokenSelect.value = "LVBIGRJ18X";
+       subIdInput.value = "tb12000";
+   }
+   else if (sourceSelect.value === "tios") {
+       tokenSelect.value = "YzqIMnJLFc";
+       subIdInput.value = "fb13000";
+   }
+   else if (sourceSelect.value === "tios1") {
+       tokenSelect.value = "kB5pFEgP0A";
+       subIdInput.value = "tb13000";
+   }
+   else if (sourceSelect.value === "ifyx") {
+       tokenSelect.value = "gwoUS2vglf";
+       subIdInput.value = "fb14000";
+   }
+   else if (sourceSelect.value === "ifyx1") {
+       tokenSelect.value = "1aHswJ9avn";
+       subIdInput.value = "tb14000";
+   }
+   else if (sourceSelect.value === "imper") {
+       tokenSelect.value = "BzRcsPuly5";
+       subIdInput.value = "fb15000";
+   }
+   else if (sourceSelect.value === "imper1") {
+       tokenSelect.value = "qWdLtBt9Ph";
+       subIdInput.value = "tb15000";
+   }
+   else if (sourceSelect.value === "taboola") {
+       tokenSelect.value = "ABmQ5dzCM7";
+       subIdInput.value = "tbcsh";
+   } else if (sourceSelect.value === "twitter") {
+       tokenSelect.value = "Wo7t5vgIJ7";
+       subIdInput.value = "fbasc";
+   } else if (sourceSelect.value === "twitt") {
+       tokenSelect.value = "nTajVQXkYQ";
+       subIdInput.value = "fbwdm";
+   }
+   else if (sourceSelect.value === "twi") {
+       tokenSelect.value = "UbTS7LkeHX";
+       subIdInput.value = "fbdse";
+   }
+   else if (sourceSelect.value === "erix") {
+       tokenSelect.value = "1xHJY9hKw5";
+       subIdInput.value = "fb17500";
+   }
+   else if (sourceSelect.value === "erix1") {
+       tokenSelect.value = "VXumvE76v7";
+       subIdInput.value = "tb17000";
+   }
+   else if (sourceSelect.value === "hiks") {
+       tokenSelect.value = "rN11zGyQ9l";
+       subIdInput.value = "fb18500";
+   }
+   else if (sourceSelect.value === "hiks1") {
+       tokenSelect.value = "l26AgLoFj5";
+       subIdInput.value = "tb18000";
+   }
+   else if (sourceSelect.value === "ella") {
+       tokenSelect.value = "m1L1XLPFsS";
+       subIdInput.value = "fb19500";
+   }
+   else if (sourceSelect.value === "ella1") {
+       tokenSelect.value = "pdqfVvhQj4";
+       subIdInput.value = "tb19000";
+   }
+   else if (sourceSelect.value === "news") {
+       tokenSelect.value = "kW8qYgYGM5";
+       subIdInput.value = "fb20500";
+   }
+   else if (sourceSelect.value === "news1") {
+       tokenSelect.value = "WWGdbWrHBW";
+       subIdInput.value = "tb20000";
+   }
+   else if (sourceSelect.value === "tent") {
+       tokenSelect.value = "mX0MnO4Vwz";
+       subIdInput.value = "fb21500";
+   }
+   else if (sourceSelect.value === "tent1") {
+       tokenSelect.value = "eSpwq0pzzb";
+       subIdInput.value = "tb21000";
+   }
+
+   else if (sourceSelect.value === "yours1") {
+       tokenSelect.value = "3OvmbeMO3F";
+       subIdInput.value = "tb10500";
+   }
+   else if (sourceSelect.value === "gose") {
+       tokenSelect.value = "rOGtWNU3hj";
+       subIdInput.value = "fb16000";
+   }
+   else if (sourceSelect.value === "gose1") {
+       tokenSelect.value = "4tCL76jsC5";
+       subIdInput.value = "tb16000";
+   }
+   
+   
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taboola Url Builder</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+<header class="mt-2  p-2 d-flex justify-content-center">
+    <div>
+        <h2>URL BUILDER</h2>
+        <button id="taboolaButton" class="btn btn-danger ms-5" onclick="toggleFields()">Taboola</button>
+    </div>
+</header>
+<div class="container">
+    <div id="fieldsContainer" style="display: none;">
+        <div class="mt-2  p-2 d-flex justify-content-between"> 
+            <div>
+                <label>Domain</label>
+                <select id="ma" onchange="updateOptions()" class="form-select">
+                    <option>select</option>
+                    <option>cloudsearchhelp</option>
+                    <option>all-search-center</option>
+                    <option>webdigitalmarketingusa</option>
+                    <option>dailycontentnews</option>
+                    <option>contentios</option>
+                    <option>contentifyx</option>
+                    <option>imperfectcontent</option>
+                    <option>gosearchify</option>
+                    <option>yoursearchhelp</option>
+                    <option value="cloudsearchhelp">DIrectsearch</option>
+                </select>
+            </div>
+            <div>
+                <label>Source</label>
+                <select  id="source" onchange="updateTokens()" class="form-select">
+                    <option value="facebook">Facebook</option>
+                    <option value="taboola">Taboola</option>
+                    <option value="twitter">Facebook</option>
+                    <option value="twitt">Facebook</option>
+                    <option value="twi">Facebook</option>
+                    <option value="daily">Facebook</option>
+                    <option value="daily1">Taboola</option>
+                    <option value="tios">Facebook</option>
+                    <option value="tios1">Taboola</option>
+                    <option value="ifyx">Facebook</option>
+                    <option value="ifyx1">Taboola</option>
+                    <option value="imper">Facebook</option>
+                    <option value="imper1">Taboola</option>
+                    <option value="gose">Facebook</option>
+                    <option value="gose1">Taboola</option>
+                    <option value="yours1">Taboola</option>
+
+
+                </select>
+            </div>
+            <div>
+                <label>Token</label>
+                <select id="token" class="form-select" disabled>
+                    <option value="RraKNIiMqT">RraKNIiMqT</option>
+                    <option value="ABmQ5dzCM7">ABmQ5dzCM7</option>
+                    <option value="Wo7t5vgIJ7">Wo7t5vgIJ7</option>
+                    <option value="nTajVQXkYQ">nTajVQXkYQ</option>
+                    <option value="UbTS7LkeHX">UbTS7LkeHX</option>
+                    <option value="WVfieZcG4y">WVfieZcG4y</option>
+                    <option value="LVBIGRJ18X">LVBIGRJ18X</option>
+                    <option value="YzqIMnJLFc">YzqIMnJLFc</option>
+                    <option value="kB5pFEgP0A">kB5pFEgP0A</option>
+                    <option value="gwoUS2vglf">gwoUS2vglf</option>
+                    <option value="1aHswJ9avn">1aHswJ9avn</option>
+                    <option value="BzRcsPuly5">BzRcsPuly5</option>
+                    <option value="qWdLtBt9Ph">qWdLtBt9Ph</option>
+                    <option value="rOGtWNU3hj">rOGtWNU3hj</option>
+                    <option value="4tCL76jsC5">4tCL76jsC5</option>
+                    <option value="3OvmbeMO3F">3OvmbeMO3F</option>
+
+                </select>
+            </div>
+            <div>
+               <h6>SubId</h6>
+               <div class="input-group">
+                   <input type="text" value="fbcsh" id="subIdInput" placeholder="Enter a number">
+                   <button class="btn btn-primary" id="copySubId" onclick="copySubId()">Copy</button>
+               </div>
+           </div>
+        </div>
+<div class="mb-3">
+   <label for="exampleInputEmail1" class="form-label">Keywords</label>
+   <div class="input-group">
+       <input type="text" class="form-control" id="keywords" aria-describedby="emailHelp">
+       <button class="btn btn-primary" id="copyKeywords" onclick="copyToClipboard()">Copy</button>
+   </div>
+   <div id="emailHelp" class="form-text">Click the "Copy" button to copy the keywords.</div>
+</div>
+        <div>
+            <div class="row">
+                <div class=" col-sm-6">
+                    <button id="clearButton" onclick="clearURL()" class="btn btn-secondary  ml-2" style="display: none;">Clear URL</button>
+                </div>
+                <div class="col-sm-6">
+                    <button onclick="buildURLs()" class="btn btn-success " style="float: right;">RUN</button>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-2">
+                <h4>Generated URL:</h4>
+            </div>
+            <div class="col-sm-8">
+                <ul id="generatedURLs"></ul>
+            </div>
+                <div class="col-sm-2">
+                   <button id="copyAllButton" onclick="copyAllURLs()" class="btn btn-primary mt-2 align-self-xl-end" style="display: none; float: right;">Copy All URLs</button>
+               
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./node_modules/jquery/dist/jquery.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<script>
+   
+        function toggleFields() {
+            var fieldsContainer = document.getElementById("fieldsContainer");
+
+            if (fieldsContainer.style.display === "none") {
+                fieldsContainer.style.display = "block";
+            } else {
+                fieldsContainer.style.display = "none";
+            }
+        }
+        function buildURLs() {
+    var generatedURLsList = document.getElementById("generatedURLs");
+    var clearButton = document.getElementById("clearButton");
+    var copyAllButton = document.getElementById("copyAllButton");
+    if (generatedURLsList && clearButton && copyAllButton) {
+        var movies = document.getElementById("ma").value;
+        var source = document.getElementById("source").value;
+        var token = document.getElementById("token").value;
+        var subId = encodeURIComponent(document.getElementById("subIdInput").value);
+        var keywordsInput = document.getElementById("keywords").value;
+        var keywords = keywordsInput.split(",").map(keyword => keyword.trim());
+        if (movies && source && token && subId && keywords.length > 0) {
+            var generatedURLs = [];
+            generatedURLsList.innerHTML = "";
+            keywords.forEach(keyword => {
+                var formattedKeyword = keyword.replace(/\s+/g, "+");
+                var url = `https://www.${movies}.com/ref/?token=${token}&search=${formattedKeyword}&subid=${subId}`;
+                generatedURLs.push(url);
+                var listItem = document.createElement("li");
+    listItem.textContent = url;
+    var copyButton = document.createElement("button");
+    copyButton.textContent = "Copy URL";
+    copyButton.className = "btn btn-primary btn-sm ml-2";
+    copyButton.onclick = function () {
+        var tempInput = document.createElement("input");
+        tempInput.value = url;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        copyButton.innerText = "Done";
+        copyButton.style.backgroundColor = "green";
+        copyButton.disabled = true;
+    };
+                listItem.appendChild(copyButton);
+                generatedURLsList.appendChild(listItem);
+            });
+            clearButton.style.display = "block";
+            copyAllButton.style.display = "block";
+        }
+    } 
+    else {
+        console.error("One or more elements not found.");
+    }
+}
+
+function copyAllURLs() {
+    var generatedURLsList = document.getElementById("generatedURLs");
+    var urls = Array.from(generatedURLsList.querySelectorAll("li")).map(li => li.textContent).join("\n");
+    var tempInput = document.createElement("textarea");
+    tempInput.value = urls;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    alert("All URLs copied to clipboard!");
+}
+
+
+         function copyURL() {
+             var generatedUrl = document.getElementById("generatedURLs").innerText;
+             var tempInput = document.createElement("input");
+             tempInput.value = generatedUrl;
+             document.body.appendChild(tempInput);
+             tempInput.select();
+             document.execCommand("copy");
+             document.body.removeChild(tempInput);
+             document.getElementById("copyButton").innerText = "Copied!";
+         }
+ 
+         function clearURL() {
+             document.getElementById("generatedURLs").innerHTML = "";
+             document.getElementById("copyButton").style.display = "none";
+             document.getElementById("clearButton").style.display = "none";
+         }
+ 
+         function movies() {
+             var movies = document.getElementById("ma").value;
+             if (movies !== "") {
+                 document.getElementById("source").disabled = false;
+             }
+         }
+           function copyToClipboard() {
+       const keywordsInput = document.getElementById('keywords');
+       keywordsInput.select();
+       document.execCommand('copy');
+   }
+   function copySubId() {
+       const subIdInput = document.getElementById('subId');
+       subIdInput.select();
+       document.execCommand('copy');
+   }
+
+function updateOptions() {
+    var domainSelect = document.getElementById("ma");
+    var sourceSelect = document.getElementById("source");
+    var tokenSelect = document.getElementById("token");
+    var subIdInput = document.getElementById("subIdInput");
+
+    if (domainSelect.value === "cloudsearchhelp") {
+        sourceSelect.innerHTML = '';
+
+        var facebookOption = document.createElement("option");
+        facebookOption.value = "facebook";
+        facebookOption.textContent = "Facebook";
+        sourceSelect.appendChild(facebookOption);
+
+        var taboolaOption = document.createElement("option");
+        taboolaOption.value = "taboola";
+        taboolaOption.textContent = "Taboola";
+        sourceSelect.appendChild(taboolaOption);
+
+        tokenSelect.value = "RraKNIiMqT";
+        subIdInput.value = "fbcsh";
+    }else if (domainSelect.value === "dailycontentnews") {
+        sourceSelect.innerHTML = '';
+
+        var facebookOption = document.createElement("option");
+        facebookOption.value = "daily";
+        facebookOption.textContent = "Facebook";
+        sourceSelect.appendChild(facebookOption);
+
+        var taboolaOption = document.createElement("option");
+        taboolaOption.value = "daily1";
+        taboolaOption.textContent = "Taboola";
+        sourceSelect.appendChild(taboolaOption);
+
+        tokenSelect.value = "WVfieZcG4y";
+        subIdInput.value = "fb12000";
+    } 
+    else if (domainSelect.value === "contentios") {
+        sourceSelect.innerHTML = '';
+
+        var facebookOption = document.createElement("option");
+        facebookOption.value = "tios";
+        facebookOption.textContent = "Facebook";
+        sourceSelect.appendChild(facebookOption);
+
+        var taboolaOption = document.createElement("option");
+        taboolaOption.value = "tios1";
+        taboolaOption.textContent = "Taboola";
+        sourceSelect.appendChild(taboolaOption);
+
+        tokenSelect.value = "YzqIMnJLFc";
+        subIdInput.value = "fb13000";
+    } 
+    else if (domainSelect.value === "contentifyx") {
+        sourceSelect.innerHTML = '';
+
+        var facebookOption = document.createElement("option");
+        facebookOption.value = "ifyx";
+        facebookOption.textContent = "Facebook";
+        sourceSelect.appendChild(facebookOption);
+
+        var taboolaOption = document.createElement("option");
+        taboolaOption.value = "ifyx1";
+        taboolaOption.textContent = "Taboola";
+        sourceSelect.appendChild(taboolaOption);
+
+        tokenSelect.value = "gwoUS2vglf";
+        subIdInput.value = "fb14000";
+    } 
+    else if (domainSelect.value === "imperfectcontent") {
+        sourceSelect.innerHTML = '';
+
+        var facebookOption = document.createElement("option");
+        facebookOption.value = "imper";
+        facebookOption.textContent = "Facebook";
+        sourceSelect.appendChild(facebookOption);
+
+        var taboolaOption = document.createElement("option");
+        taboolaOption.value = "imper1";
+        taboolaOption.textContent = "Taboola";
+        sourceSelect.appendChild(taboolaOption);
+
+        tokenSelect.value = "BzRcsPuly5";
+        subIdInput.value = "fb15000";
+    } 
+    else if (domainSelect.value === "all-search-center") {
+        sourceSelect.innerHTML = '';
+
+        var twitterOption = document.createElement("option");
+        twitterOption.value = "twitter";
+        twitterOption.textContent = "Facebook";
+        sourceSelect.appendChild(twitterOption);
+
+        tokenSelect.value = "Wo7t5vgIJ7";
+        subIdInput.value = "fbasc";
+    }
+     else if (domainSelect.value === "yoursearchhelp") {
+        sourceSelect.innerHTML = '';
+
+        var yours1Option = document.createElement("option");
+        yours1Option.value = "yours1";
+        yours1Option.textContent = "Taboola";
+        sourceSelect.appendChild(yours1Option);
+
+        tokenSelect.value = "3OvmbeMO3F";
+        subIdInput.value = "tb10500";
+    }
+
+    else if (domainSelect.value === "gosearchify") {
+        sourceSelect.innerHTML = '';
+
+        var yoursOption = document.createElement("option");
+        yoursOption.value = "gose";
+        yoursOption.textContent = "Facebook";
+        sourceSelect.appendChild(yoursOption);
+
+        var yours1Option = document.createElement("option");
+        yours1Option.value = "gose1";
+        yours1Option.textContent = "Taboola";
+        sourceSelect.appendChild(yours1Option);
+
+        if (yoursOption.textContent==="Facebook"){
+            tokenSelect.value = "rOGtWNU3hj";
+        subIdInput.value = "fb16000";
+        }
+        else if (yours1Option.textContent==="Taboola"){
+            tokenSelect.value = "4tCL76jsC5";
+        subIdInput.value = "tb16000";
+        }
+
+        
+    }
+    else if (domainSelect.value === "gosearchify") {
+        sourceSelect.innerHTML = '';
+
+        
+
+        
+    }
+     else if (domainSelect.value === "DIrectsearch") {
+    // Set the domain to "DIrectsearch" in the backend
+    // Display "DIrectsearch" in the frontend
+    sourceSelect.innerHTML = '';
+
+    // Create options for the "DIrectsearch" case
+    var directSearchOption = document.createElement("option");
+    directSearchOption.value = "directsearch"; // Set the source value for DIrectsearch
+    directSearchOption.textContent = "DIrectsearch"; // Display "DIrectsearch" in the frontend
+    sourceSelect.appendChild(directSearchOption);
+        var twittOption = document.createElement("option");
+        twittOption.value = "twi";
+        twittOption.textContent = "Facebook";
+        sourceSelect.appendChild(twittOption);
+
+        tokenSelect.value = "UbTS7LkeHX";
+        subIdInput.value = "fbdse";
+    } else {
+        sourceSelect.innerHTML = '';
+
+        var defaultOption = document.createElement("option");
+        defaultOption.value = "facebook";
+        defaultOption.textContent = "Facebook";
+        sourceSelect.appendChild(defaultOption);
+
+        tokenSelect.value = "RraKNIiMqT";
+        subIdInput.value = "";
+    }
+}
+
+
+function updateTokens() {
+   var sourceSelect = document.getElementById("source");
+   var tokenSelect = document.getElementById("token");
+   var subIdInput = document.getElementById("subIdInput");
+
+   if (sourceSelect.value === "facebook") {
+       tokenSelect.value = (document.getElementById("ma").value === "cloudsearchhelp") ? "RraKNIiMqT" : 
+                         ((document.getElementById("ma").value === "all-search-center") ? "Wo7t5vgIJ7" : 
+                         "nTajVQXkYQ");
+       subIdInput.value = (document.getElementById("ma").value === "cloudsearchhelp") ? "fbcsh" : 
+                           ((document.getElementById("ma").value === "all-search-center") ? "fbasc" : 
+                           "fbwdm");
+      
+   } else if (sourceSelect.value === "daily") {
+       tokenSelect.value = "WVfieZcG4y";
+       subIdInput.value = "fb12000";
+   }
+   else if (sourceSelect.value === "daily1") {
+       tokenSelect.value = "LVBIGRJ18X";
+       subIdInput.value = "tb12000";
+   }
+   else if (sourceSelect.value === "tios") {
+       tokenSelect.value = "YzqIMnJLFc";
+       subIdInput.value = "fb13000";
+   }
+   else if (sourceSelect.value === "tios1") {
+       tokenSelect.value = "kB5pFEgP0A";
+       subIdInput.value = "tb13000";
+   }
+   else if (sourceSelect.value === "ifyx") {
+       tokenSelect.value = "gwoUS2vglf";
+       subIdInput.value = "fb14000";
+   }
+   else if (sourceSelect.value === "ifyx1") {
+       tokenSelect.value = "1aHswJ9avn";
+       subIdInput.value = "tb14000";
+   }
+   else if (sourceSelect.value === "imper") {
+       tokenSelect.value = "BzRcsPuly5";
+       subIdInput.value = "fb15000";
+   }
+   else if (sourceSelect.value === "imper1") {
+       tokenSelect.value = "qWdLtBt9Ph";
+       subIdInput.value = "tb15000";
+   }
+   else if (sourceSelect.value === "taboola") {
+       tokenSelect.value = "ABmQ5dzCM7";
+       subIdInput.value = "tbcsh";
+   } else if (sourceSelect.value === "twitter") {
+       tokenSelect.value = "Wo7t5vgIJ7";
+       subIdInput.value = "fbasc";
+   } else if (sourceSelect.value === "twitt") {
+       tokenSelect.value = "nTajVQXkYQ";
+       subIdInput.value = "fbwdm";
+   }
+   else if (sourceSelect.value === "twi") {
+       tokenSelect.value = "UbTS7LkeHX";
+       subIdInput.value = "fbdse";
+   }
+   else if (sourceSelect.value === "yours1") {
+       tokenSelect.value = "3OvmbeMO3F";
+       subIdInput.value = "tb10500";
+   }
+   else if (sourceSelect.value === "gose") {
+       tokenSelect.value = "rOGtWNU3hj";
+       subIdInput.value = "fb16000";
+   }
+   else if (sourceSelect.value === "gose1") {
+       tokenSelect.value = "4tCL76jsC5";
+       subIdInput.value = "tb16000";
+   }
+   
+   
+}
+</script>
+</body>
+</html> -->
+
